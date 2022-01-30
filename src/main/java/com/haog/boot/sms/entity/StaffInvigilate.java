@@ -29,7 +29,7 @@ public class StaffInvigilate implements Serializable {
 
     @ApiModelProperty(value = "唯一标识id")
     @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private String id;
+    private Long id;
 
     @ApiModelProperty(value = "学期")
     private String term;
@@ -58,7 +58,7 @@ public class StaffInvigilate implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
-    public void setExamType(){
+    public void updateExamType(){
         if (getExamType ().equals ("社会考试")){
             setExamType ("1");
         }else {

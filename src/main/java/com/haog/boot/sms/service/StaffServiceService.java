@@ -12,5 +12,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-01-29
  */
 public interface StaffServiceService extends IService<StaffService> {
-  void updateService(String staffId);
+  void updateAddService(String staffId);
+  void updateAddBatchService(String staffId);
+  void updateDeleteService(String staffId);
+  void updateDeleteBatchService(String staffId);
 }
