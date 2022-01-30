@@ -1,0 +1,24 @@
+# 配置端口号
+server:
+  port: 7777
+
+spring:
+  # 设置开发环境
+  profiles:
+    active: dev
+  # 数据库连接配置
+  datasource:
+    username: root
+    password: 5Xhkadxjj
+    url: jdbc:p6spy:mysql://localhost:3306/sms?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+mybatis-plus:
+  mapper-locations: classpath:com/haog/boot/sms/mapper/xml/*.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除
+      logic-not-delete-value: 0 # 逻辑未删除

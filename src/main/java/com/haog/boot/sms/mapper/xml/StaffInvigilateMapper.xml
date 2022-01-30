@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haog.boot.sms.mapper.StaffInvigilateMapper">
+  <!--监考信息多表查询-->
+  <select id="selectStaInvigilate" resultType="com.haog.boot.sms.vo.StaffInvigilateVo">
+    select si.id,
+           si.term,
+           si.exam_name  as examName,
+           si.exam_type  as examType,
+           si.staff_id   as staffId,
+           si.session,
+           sp.staff_name as staffName
+    from staff_invigilate si
+           left join staff_infor sp on si.staff_id = sp.staff_id
+      ${ew.customSqlSegment}
+  </select>
+</mapper>
+
+        <!--<where>-->
+        <!--<if test="staffId != null and staffId != ''">-->
+        <!--  and si.staff_id = #{staffId}-->
+        <!--</if>-->
+        <!--<if test="term != null and term != ''">-->
+        <!--  and si.term = #{term}-->
+        <!--</if>-->
+        <!--<if test="examType != null and examType != ''">-->
+        <!--  and si.exam_type = #{examType}-->
+        <!--</if>-->
+        <!--<if test="session != null and session != ''">-->
+        <!--  and si.session = #{session}-->
+        <!--</if>-->
+        <!--<if test="staffName != null and staffName != ''">-->
+        <!--  and sp.staff_name = #{staffName}-->
+        <!--</if>-->
+        <!--</where>-->
